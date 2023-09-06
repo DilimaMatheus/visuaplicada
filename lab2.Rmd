@@ -1,0 +1,43 @@
+---
+title: "Lab2"
+output: html_document
+date: "2023-09-05"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+require(circlize)
+install.packages('circlize')
+```
+
+#Diagrama de Cordas 
+
+- Diagrama de cordas simples:
+
+```{r fig.align='center', warning=FALSE}
+
+A <- matrix(c(15,3,8,1,2,1), nrow=2, ncol=3, byrow=TRUE)
+
+dimnames(A) <-list(c('Curitiba','N.Curitiba'),
+                   c('Curitiba','Paraná','N.Paraná'))
+
+chordDiagram(A)
+
+```
+
+```{r fig.align='center', warning=FALSE}
+
+A <- matrix(c(15,3,8,1,2,1), nrow=2, ncol=3, byrow=TRUE)
+
+dimnames(A) <-list(c('Curitiba','N.Curitiba'),
+                   c('Curitiba','Paraná','N.Paraná'))
+
+DE <- c('VIDA.CURITIBA','VIDA.CURITIBA','VIDA.ESTADO','VIDA.ESTADO','VIDA.F.ESTADO','VIDA.F.ESTADO')
+
+PARA <- c('MORA.CURITIBA','NMORA.CURITIBA','MORA.CURITIBA','NMORA.CURITIBA','MORA.CURITIBA','NMORA.CURITIBA')
+
+dados <- data.frame(DE,PARA,c(15,1,3,2,8,1))
+chordDiagram(dados)
+
+```
